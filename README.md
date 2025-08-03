@@ -33,7 +33,14 @@ This repository presents the **Village Boys Team**'s self-driving car — **Hoqq
 
 ## The Team
 
-  Our team is consist of 3 members. Team's main goal is working with efficiency and collabrate our skills together to improve our knowladge and _Hoqqa_'s power.
+ Our team consists of three dedicated members, each bringing unique strengths and expertise to the table. As the _Village Boys Team_, our primary goal is to work with maximum efficiency while combining our individual skills to learn from one another and grow together. Through close collaboration, we aim not only to enhance our personal knowledge in robotics, AI, and embedded systems, but also to continuously improve the performance, intelligence, and reliability of our robot — _Hoqqa_. We believe that teamwork, curiosity, and perseverance are the key drivers behind our success in building a competitive and innovative autonomous vehicle.
+  
+  <p align="center">
+    <img src="assets/Alibali_Profile_Photo.jpg" alt="Alibali" width="400"/>
+  </p>
+
+  **Alibali Alibayov** is a graduate of School No. 4 in the Aliabad settlement of the Zaqatala district. As a core contributor to the Hoqqa project, he focuses on the integration of the Raspberry Pi board with the ROS 2 framework, utilizing both a depth camera and LIDAR for real-time perception and decision-making. His primary objective is to ensure that the results achieved in simulation can be effectively and reliably applied in real-world scenarios, bridging the gap between virtual testing and physical performance.
+
 
 
 ## Robot Specifications
