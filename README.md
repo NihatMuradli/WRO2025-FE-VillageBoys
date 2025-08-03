@@ -5,6 +5,7 @@ This repository presents the **Village Boys Team**'s self-driving car — **Hoqq
 
 ## List of Dictionaries
 
+* [List-of-Materials](https://github.com/AlibaliAlibayov/WRO2025-FE-VillageBoys/tree/main/List-of-Materials) contains the list of all the materials necessary to build the robot.
 * [Team-Photos](https://github.com/AlibaliAlibayov/WRO2025-FE-VillageBoys/tree/main/Team-Photos) contains multiple photos of the whole team.
 * [Vehicle-Models](https://github.com/AlibaliAlibayov/WRO2025-FE-VillageBoys/tree/main/Vehicle-Models) contains multiple 3D models of the vehicle's view.
 * [Vehicle-Photos](https://github.com/AlibaliAlibayov/WRO2025-FE-VillageBoys/tree/main/Vehicle-Photos) contains multiple photos of the vehicle.
@@ -14,22 +15,27 @@ This repository presents the **Village Boys Team**'s self-driving car — **Hoqq
   
 ## Content
 
-* `t-photos` contains 2 photos of the team (an official one and one funny photo with all team members)
-* `v-photos` contains 6 photos of the vehicle (from every side, from top and bottom)
-* `video` contains the video.md file with the link to a video where driving demonstration exists
-* `schemes` contains one or several schematic diagrams in form of JPEG, PNG or PDF of the electromechanical components illustrating all the elements (electronic components and motors) used in the vehicle and how they connect to each other.
-* `src` contains code of control software for all components which were programmed to participate in the competition
-* `models` is for the files for models used by 3D printers, laser cutting machines and CNC machines to produce the vehicle elements. If there is nothing to add to this location, the directory can be removed.
-* `other` is for other files which can be used to understand how to prepare the vehicle for the competition. It may include documentation how to connect to a SBC/SBM and upload files there, datasets, hardware specifications, communication protocols descriptions etc. If there is nothing to add to this location, the directory can be removed.
+
 
 ## Introduction
 
-_This part must be filled by participants with the technical clarifications about the code: which modules the code consists of, how they are related to the electromechanical components of the vehicle, and what is the process to build/compile/upload the code to the vehicle’s controllers._
 
-## How to prepare the repo based on the template
 
-_Remove this section before the first commit to the repository_
+## The Team
 
-1. Clone this repo by using the `git clone` functionality.
-2. Remove `.git` directory
-3. [Initialize a new public repository on GitHub](https://github.com/new) by following instructions from "create a new repository on the command line" section (appeared after pressing "Create repository" button).
+  Our team is consist of 3 members. Team's main goal is working with efficiency and collabrate our skills together to improve our knowladge and _Hoqqa_'s power.
+
+
+## Robot Specifications
+
+The Village Boys Team proudly presents our self-driving car — the Hoqqa robot, developed for the World Robot Olympiad Azerbaijan 2025 Local Finals. Designed with precision, agility, and performance in mind, Hoqqa reflects the innovation and strong collaboration of our trio. Engineered to meet the challenges of the competition, the robot features some significant sensors equipped with the **Nuwa HP60C Cam**,**Lidar** and **IMU** delivering optimal speed, maneuverability, and power efficiency.
+
+Below, you'll find the key specifications that showcase Hoqqa’s capabilities — a testament to our team's dedication to excellence and readiness to compete on the competition.
+
+  * **Dimensions:** 195mm (L) x 160mm (W) x 230mm (H)
+  * **Weight:** 1.23kg
+  * **Maximum Speed:** 6.53m/s
+  * **Steering Torque:** 100Ncm
+  * **Working Voltage:** 11.1V–7.6V
+  * **Drive System:** Rear-wheel drive (RWD)
+  * **Steering Geometry:** Parallel steering
