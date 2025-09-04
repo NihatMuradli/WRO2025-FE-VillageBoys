@@ -15,11 +15,8 @@ This repository presents the **Village Boys Team**'s self-driving car — **Hoqq
   
 ## Content
 
-- [1. 🤖 About us!](#1-about-us)
-  - [1.1 🌟 Team presentation](#11-team-presentation)
-  - [1.2 ✅ Team Management](#12-team-management)
-  - [1.3 🤔 Reasons to participate](#13-reasons-to-participate)
-- [2. 🛠️ About the car](#2-about-the-car)
+- [1. Introduction](#1-introduction)
+- [2. The Team](#2-the-team)
   - [2.1 🧠 Our autonomous car's logic](#21-our-autonomous-cars-logic)
   - [2.2 💡 Flow Diagram](#22-flow-diagram)
   - [2.3 🖥️ Why Python?](#23-why-python)
@@ -59,7 +56,7 @@ This repository presents the **Village Boys Team**'s self-driving car — **Hoqq
   - [7.3 🔒 Parking Strategy](#73-parking-strategy)
 
 
-## Introduction
+## 1. Introduction
 
 
  This engineering documentation offers a comprehensive overview of the **Village Boys Team's** self-driving robot, developed and programmed by our team from the Philippines for the **Future Engineers Category at the WRO Azerbaijan 2025 Local Finals**. Within this document, you'll find insights into the robot’s design, functionality, and features — all reflecting our dedication to advancing autonomous technology.
@@ -73,7 +70,7 @@ This repository presents the **Village Boys Team**'s self-driving car — **Hoqq
  To complement the technical information, we've included visual documentation such as real and 3D model images of the robot from multiple angles, along with team photos. Additionally, performance videos showcase the robot in action across various challenge scenarios.
 
 
-## The Team
+## 2. The Team
 
  Our team consists of three dedicated members, each bringing unique strengths and expertise to the table. As the _Village Boys Team_, our primary goal is to work with maximum efficiency while combining our individual skills to learn from one another and grow together. Through close collaboration, we aim not only to enhance our personal knowledge in robotics, AI, and embedded systems, but also to continuously improve the performance, intelligence, and reliability of our robot — _Hoqqa_. We believe that teamwork, curiosity, and perseverance are the key drivers behind our success in building a competitive and innovative autonomous vehicle.
   
