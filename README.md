@@ -41,6 +41,11 @@ This repository presents the **Village Boys Team**'s self-driving car — **Hoqq
 
   **Alibali Alibayov** is a graduate of School No. 4 in the Aliabad settlement of the Zaqatala district. As a core contributor to the Hoqqa project, he focuses on the integration of the Raspberry Pi board with the ROS 2 framework, utilizing both a depth camera and LIDAR for real-time perception and decision-making. His primary objective is to ensure that the results achieved in simulation can be effectively and reliably applied in real-world scenarios, bridging the gap between virtual testing and physical performance.
 
+  <p align="center">
+    <img src="assets/Alibali_Profile_Photo.jpg" alt="Alibali" width="400"/>
+  </p>
+  
+**Haji Hajiyev** is a graduate of the Zagatala City Lyceum named after Academician Zarifa Aliyeva. As a technical contributor to the Hoqqa project, he specializes in 3D modeling of the car’s components. His primary focus is on refining the digital model based on insights gained from physical testing. By analyzing real-world performance, he ensures that the design maintains both structural strength and aerodynamic efficiency, while continuously improving the mechanical layout of the vehicle.
 
 
 ## Robot Specifications
