@@ -7,3 +7,4 @@
 | IMU Controller          | 1        | $39.99  | ![IMU Controller](https://www.hiwonder.com/cdn/shop/files/1_39aaca4a-992b-4976-b21c-6a53e3ac99a9.jpg?v=1726816513%201200w) |
 | Gear 26T                | 2        | $5.48   | ![Gear 26T](https://img.kwcdn.com/product/fancy/d4ca6991-57a3-4811-86c1-9d5b4e9ff061.jpg?imageView2/2/w/800/q/70/format/webp) |
 | Steel Rods (5x)         | 1        | $3.76   | ![Steel Rods](https://img.kwcdn.com/product/fancy/ec49fb21-845d-4714-ad40-312e50e67fd4.jpg?imageView2/2/w/800/q/70/format/webp) |
+| 40 KG SERVO MOTOR       | 1        | $25   | ![SERVO MOTOR](https://m.media-amazon.com/images/I/71Rbxoycd0L._UF894,1000_QL80_.jpg) |
