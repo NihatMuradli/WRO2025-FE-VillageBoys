@@ -245,3 +245,271 @@ The battery powering the autonomous car is a ***Lithium Polymer (Li-poly)*** typ
 </table>
 
 </div>
+
+## 6. Building the Robot
+
+**This section covers the assembly and 3D design of our robot, highlighting three main components: the chassis, the front steering system, and the 3D printing process.**
+
+### 6.1. Chassis
+
+The base and upper casing of our robot were crafted from aluminum to provide a strong yet lightweight support structure for all components. The base is designed to securely mount the Raspberry Pi and support the weight of the vehicle’s systems, offering a stable foundation and balanced weight distribution, which is critical for overall stability. The upper casing houses the LiDAR sensor, ensuring it has an unobstructed view while protecting it from potential impacts and environmental factors.
+
+For the main structural parts, we used PLA, chosen for its affordability and light weight. The components are specially designed to enhance mobility and road-holding, allowing the robot to move efficiently and maintain stability across different surfaces.
+
+
+  <p align="center">
+    <img src="assets/Second-floor.jpeg" alt="Alibali" width="100%"/>
+  </p>
+
+### 6.2. Front Wheel System
+
+The base and upper casing of our robot were crafted from aluminum to provide strong yet lightweight support for all components. The base securely mounts the Raspberry Pi and supports the vehicle’s systems, offering a stable foundation and balanced weight distribution. The upper casing houses the LiDAR sensor, ensuring an unobstructed view while protecting it from impacts and environmental factors.
+
+For the main structural parts, we used PLA for its affordability and light weight. The components are specially designed for mobility and road-holding, creating a system that provides both strong structure and sufficient mobility for stable and efficient movement.
+
+  <p align="center">
+    <img src="assets/Front-axe-base.jpeg" alt="Alibali" width="100%"/>
+  </p>
+
+
+### 6.3. 3D Printing Process
+
+  <p align="center">
+    <img src="assets/3d-printing.jpeg" alt="Alibali" width="700"/>
+  </p>
+
+## 7. Principal Strategy
+
+### 7.1. PID Controller
+
+A PID controller regulates a system by continuously comparing the desired target value (setpoint) with the current measured value and making adjustments based on three components:
+
+* **Proportional (P):** Responds proportionally to the current error, providing an immediate correction.
+* **Integral (I):** Accounts for accumulated past errors, helping to eliminate steady-state deviations.
+* **Derivative (D):** Considers the rate at which the error is changing, smoothing the response and reducing overshoot.
+
+By combining these three actions, a PID controller ensures the system reaches the desired target efficiently, maintaining stability and minimizing oscillations or delays.
+
+  <p align="center">
+    <img src="assets/pid.jpg" alt="Alibali" width="100%"/>
+  </p>
+
+```
+import cv2
+import pytesseract
+import time
+from picamera2 import Picamera2
+import numpy as nm
+import RPlidar as Lidar
+import sense._camera_deep as DSCamera
+```
+
+### 7.2. Open Challenge
+
+For obstacle detection, we use the Follow The Gap algorithm, which takes advantage of the precise distance measurements from our LiDAR sensor. This method provides several benefits for our robot:
+
+* **Improved Safety and Navigation:** Enables real-time obstacle avoidance with smooth path adjustments around detected objects, reducing the risk of collisions in complex environments.
+* **Efficient Performance:** Requires low computational resources, allowing fast decision-making suitable for real-time control, while being simple to implement and reliably effective.
+
+  <p align="center">
+    <img src="Vehicle-Schemes/First_Task_Algorithm.png" alt="Alibali" width="600"/>
+  </p>
+
+```
+import RPi.GPIO as GPIO
+import mainControl
+import time
+
+SENSOR_PIN = 20 
+
+my_sensor = line_sensor(SENSOR_PIN)
+
+class LineFollowerPID_dl:
+    def __init__(self, sensor_pins, motor_controller, Kp, Ki, Kd):
+        self.sensor_pins = sensor_pins
+        self.motor_controller = motor_controller
+        self.Kp_dl = Kp
+        self.Ki_dl = Ki
+        self.Kd_dl = Kd
+
+        GPIO.setmode(GPIO.BCM)
+        for pin in self.sensor_pins:
+            GPIO.setup(pin, GPIO.IN)
+        
+        self.previous_error = 0
+        self.integral = 0
+    
+    def read_sensors(self):
+        """Read the values from the 5 sensors (1 for black, 0 for white)."""
+        return [GPIO.input(pin) for pin in self.sensor_pins]
+    
+    def calculate_error(self, sensor_values):
+        """
+        Calculate the error based on the sensor readings.
+        Weights are adjusted assuming the line is 2 cm wide.
+        """
+        # Error weights assuming 2 cm per sensor coverage, centered on 0
+        weights = [-2, -1, 0, 1, 2]
+
+        # Error calculation: weighted sum of sensor values (1=black, 0=white)
+        error = sum([weights[i] * sensor_values[i] for i in range(5)])
+
+        # Normalize the error, so that maximum deviation from center is considered
+        if sum(sensor_values) == 0:
+            # If no sensor detects the line, keep the previous error (could be off track)
+            error = self.previous_error
+        else:
+            error = error / sum(sensor_values)  # Normalize by the number of active sensors
+        
+        return error
+    
+    def pid_control(self, error, dt):
+        """PID control logic for adjusting motor speeds."""
+        P = error
+        self.integral += error * dt
+        derivative = (error - self.previous_error) / dt
+        self.previous_error = error
+        output = (self.Kp_dl * P) + (self.Ki_dl * self.integral) + (self.Kd_dl * derivative)
+        return output
+    
+    def follow_line(self, base_speed=80):
+        """Main loop for line following."""
+        try:
+            while True:
+                start_time = time.time()
+                sensor_values = self.read_sensors()
+                error = self.calculate_error(sensor_values)
+                dt = time.time() - start_time
+                adjustment = self.pid_control(error, dt)
+                
+                # Motor speed adjustments
+                left_speed = base_speed - adjustment
+                right_speed = base_speed + adjustment
+                left_speed = max(0, min(100, left_speed))
+                right_speed = max(0, min(100, right_speed))
+                
+                # Set the motor speeds
+                self.motor_controller.set_speed('left', left_speed)
+                self.motor_controller.set_speed('right', right_speed)
+                
+                self.motor_controller.move_forward_both()
+                
+                time.sleep(0.1)
+                
+                # Check the single sensor
+                sensor_value = my_sensor.read_line_sensor()
+                
+                if sensor_value == 0:
+                    print("Black line detected by single sensor. Stopping the robot.")
+                    self.motor_controller.stop_all()
+                    break  # Stop following the line and break out of the loop
+
+        except KeyboardInterrupt:
+            self.motor_controller.stop_all()
+            GPIO.cleanup()
+```
+
+```
+# l298n_dual_motor.py
+
+import RPi.GPIO as GPIO
+import time
+
+class L298NDualMotor:
+    def __init__(self, left_pins, right_pins):
+        """
+        Initialize the motor control with specified GPIO pins.
+        
+        left_pins and right_pins should be dictionaries with keys:
+        'in1', 'in2', 'en' (enable pin for PWM)
+        """
+        self.left_pins = left_pins
+        self.right_pins = right_pins
+        
+        # Setup GPIO mode
+        GPIO.setmode(GPIO.BCM)
+        
+        # Setup left motor pins
+        GPIO.setup(self.left_pins['in1'], GPIO.OUT)
+        GPIO.setup(self.left_pins['in2'], GPIO.OUT)
+        GPIO.setup(self.left_pins['en'], GPIO.OUT)
+        self.left_pwm = GPIO.PWM(self.left_pins['en'], 1000)
+        self.left_pwm.start(0)
+        
+        # Setup right motor pins
+        GPIO.setup(self.right_pins['in1'], GPIO.OUT)
+        GPIO.setup(self.right_pins['in2'], GPIO.OUT)
+        GPIO.setup(self.right_pins['en'], GPIO.OUT)
+        self.right_pwm = GPIO.PWM(self.right_pins['en'], 1000)
+        self.right_pwm.start(0)
+
+    def set_speed(self, motor, speed):
+        """ Set motor speed (0 to 100%). 'motor' can be 'left' or 'right'. """
+        if motor == 'left':
+            self.left_pwm.ChangeDutyCycle(speed)
+        elif motor == 'right':
+            self.right_pwm.ChangeDutyCycle(speed)
+        else:
+            raise ValueError("Motor must be 'left' or 'right'")
+
+    def move_forward(self, motor):
+        """ Move specified motor forward """
+        if motor == 'left':
+            GPIO.output(self.left_pins['in1'], GPIO.HIGH)
+            GPIO.output(self.left_pins['in2'], GPIO.LOW)
+        elif motor == 'right':
+            GPIO.output(self.right_pins['in1'], GPIO.HIGH)
+            GPIO.output(self.right_pins['in2'], GPIO.LOW)
+
+    def move_backward(self, motor):
+        """ Move specified motor backward """
+        if motor == 'left':
+            GPIO.output(self.left_pins['in1'], GPIO.LOW)
+            GPIO.output(self.left_pins['in2'], GPIO.HIGH)
+        elif motor == 'right':
+            GPIO.output(self.right_pins['in1'], GPIO.LOW)
+            GPIO.output(self.right_pins['in2'], GPIO.HIGH)
+
+    def stop_motor(self, motor):
+        GPIO.setmode(GPIO.BCM)
+        """ Stop the specified motor """
+        if motor == 'left':
+            GPIO.output(self.left_pins['in1'], GPIO.LOW)
+            GPIO.output(self.left_pins['in2'], GPIO.LOW)
+        elif motor == 'right':
+            GPIO.output(self.right_pins['in1'], GPIO.LOW)
+            GPIO.output(self.right_pins['in2'], GPIO.LOW)
+
+    def cleanup(self):
+        """ Clean up GPIO settings """
+        self.left_pwm.stop()
+        self.right_pwm.stop()
+        GPIO.cleanup()
+
+    # Additional methods to control both motors together
+    def move_forward_both(self):
+        self.move_forward('left')
+        self.move_forward('right')
+
+    def move_backward_both(self):
+        self.move_backward('left')
+        self.move_backward('right')
+
+    def stop_all(self):
+        self.stop_motor('left')
+        self.stop_motor('right')
+
+    def set_speed_both(self, left_speed, right_speed):
+        self.set_speed('left', left_speed)
+        self.set_speed('right', right_speed)
+```
+
+### 7.3. Obstacle Challenge
+
+
+The vehicle’s navigation system integrates LiDAR distance measurements with visual data from a monocular camera to handle obstacle detection and maneuvering. The camera detects the color of pillars along the vehicle’s path: a red pillar triggers a right turn, while a green pillar prompts a left turn. For obstacle avoidance, the LiDAR uses the Follow The Gap algorithm, which creates a safety bubble around the closest detected point, ignores points inside the bubble, and then identifies the largest free-space gap, steering the vehicle toward the furthest point in that gap. After performing color- or gap-based adjustments, the vehicle recalibrates its path to stay aligned with the planned navigation loop, combining real-time visual and spatial data for smooth, responsive, and efficient movement.
+
+  <p align="center">
+    <img src="Vehicle-Schemes/Second_Task_Algorithm.png" alt="Alibali" width="100%"/>
+  </p>
+
