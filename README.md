@@ -126,7 +126,8 @@ The battery powering the autonomous car is a ***Lithium Polymer (Li-poly)*** typ
 > [!IMPORTANT]
 > **Placement:**
 > It was positioned at an altitude of under 10 cm, so it is able to detect the walls of the path, which are also 10 cm high. This placement ensures the Lidar has a clear view of the obstacles while remaining unobstructed by other components. All other elements on the car were arranged to avoid blocking the Lidar’s line of sight.
-> <img width="1206" alt="Screenshot 2024-11-10 at 18 18 03" src="https://github.com/user-attachments/assets/9e9d9df4-cfc6-4875-b832-435c4d2ebb1c">
+> ![5_684ac3de-d4f0-44ea-b2ec-298623cacf0f](https://github.com/user-attachments/assets/844f35a4-405b-4f76-bc84-3747bfd89c9f)
+
   
 #### 4.3.2 Deepsense Camera:
   + ***Color detection***: Since graphical color detection is a core part of your project, the camera can precisely identify various colors on the course. This enables our robot to execute programmed actions based on specific color cues, which is crucial for the Obstacle challenge, which requires interaction with color-based objects.
