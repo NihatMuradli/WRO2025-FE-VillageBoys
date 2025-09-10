@@ -174,10 +174,10 @@ _* **Motors**:_
   _* **DS3240 Servo Motor (40kg/cm)** → handles steering, also linked to the motor driver._
 _* **Power Supply**:_
 
- _ * **LiPo Battery (11.1V, 3000mAh, 35C)** → main power source for motors and controller board._
+  _* **LiPo Battery (11.1V, 3000mAh, 35C)** → main power source for motors and controller board._
 _* **Motor Driver Board** → distributes power and control signals between Raspberry Pi, motors, and sensors._
 _* **Wiring**:_
 
- _ * **Red = Power**, **Black = Ground**, **Yellow = Data**, **Blue = USB connections**._
+  _* **Red = Power**, **Black = Ground**, **Yellow = Data**, **Blue = USB connections**._
 
 _In short: the **LiPo battery powers the motor driver board**, which drives the motors, while the **Raspberry Pi (running ROS 2)** handles decision-making using input from the **depth camera and LiDAR**._
