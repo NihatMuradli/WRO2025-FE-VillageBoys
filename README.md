@@ -193,3 +193,7 @@ Hoqqa uses a single **12V 7.5 kg·cm, 170 RPM encoder motor** connected to a
 ### 4.3. Ackermann Steering System
 
 Hoqqa uses an **Ackermann steering system** controlled by a **15 kg·cm digital servo** for precise and stable navigation. This geometry aligns all wheels to a common center when turning, reducing tire slip and enabling smooth cornering. The high-torque servo ensures accurate, responsive steering, improving maneuverability and control on complex paths and obstacles.
+
+  <p align="center">
+    <img src="assets/Ackermann-steering-mechanism.jpg" alt="Alibali" width="100%"/>
+  </p>
