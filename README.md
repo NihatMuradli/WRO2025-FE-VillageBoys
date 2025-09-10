@@ -99,10 +99,10 @@ The Village Boys Team proudly presents our self-driving car — the Hoqqa robot,
 
 Below, you'll find the key specifications that showcase Hoqqa’s capabilities — a testament to our team's dedication to excellence and readiness to compete on the competition.
 
-  * **Dimensions:** 195mm (L) x 160mm (W) x 230mm (H)
-  * **Weight:** 1.23kg
+  * **Dimensions:** 205mm (L) x 190mm (W) x 130mm (H)
+  * **Weight:** 1.39kg
   * **Maximum Speed:** 6.53m/s
   * **Steering Torque:** 100Ncm
-  * **Working Voltage:** 11.1V–7.6V
+  * **Working Voltage:** 11.1V
   * **Drive System:** Rear-wheel drive (RWD)
   * **Steering Geometry:** Parallel steering
