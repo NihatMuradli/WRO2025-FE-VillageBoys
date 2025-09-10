@@ -157,4 +157,27 @@ An important design constraint was the placement of the **LIDAR sensor**. Since 
 
 Finally, the **electronic components**—including motors, motor drivers, and sensors—were chosen specifically to maximize mobility. They provide enough torque and responsiveness for smooth navigation, enabling Hoqqa to combine precise control with efficient obstacle avoidance.
 
-### 4.1. 
+### 4.1. Wiring Diagram
+
+  <p align="center">
+    <img src="Vehicle-Schemes/wiring_diagram.jpg" alt="Alibali" width="100%"/>
+  </p>
+
+_* **Central Controller** → **Raspberry Pi 4B+**, which manages all sensors and actuators.
+* **Sensors**:
+
+  * **Nuwa 60C-HP Depth Camera** → connected via USB for vision and depth perception.
+  * **D500 STL LiDAR** → connected via USB + power, used for wall detection and mapping.
+* **Motors**:
+
+  * **12V DC Encoder Motor** → provides driving power, connected through a motor driver board.
+  * **DS3240 Servo Motor (40kg/cm)** → handles steering, also linked to the motor driver.
+* **Power Supply**:
+
+  * **LiPo Battery (11.1V, 3000mAh, 35C)** → main power source for motors and controller board.
+* **Motor Driver Board** → distributes power and control signals between Raspberry Pi, motors, and sensors.
+* **Wiring**:
+
+  * **Red = Power**, **Black = Ground**, **Yellow = Data**, **Blue = USB connections**.
+
+In short: the **LiPo battery powers the motor driver board**, which drives the motors, while the **Raspberry Pi (running ROS 2)** handles decision-making using input from the **depth camera and LiDAR**._
