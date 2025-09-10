@@ -119,3 +119,17 @@ During the Obstacle Challenge, the depth camera detects block colors to decide m
 * **Green** → pass on the left
 
 At the same time, LIDAR maintains wall awareness for safe evasion. After completing the required laps and obstacle avoidance, Hoqqa searches for a suitable parking space and performs a parallel parking maneuver using distance and angle calculations from its sensors.
+
+
+### 3.2 Why Python?
+
+For the Hoqqa project, **Python** was chosen as the main programming language because it provides the perfect balance between flexibility, speed of development, and hardware control. Since our system relies on both real-time sensor data and complex decision-making, Python allows us to rapidly develop and refine algorithms while keeping the code clean and easy to maintain.
+
+We benefit from Python in several ways:
+
+* **Readable and efficient** → Python’s high-level syntax makes it easy to write, test, and debug, which is essential for rapid prototyping and adapting strategies during WRO preparation.
+* **Extensive libraries** → From **ROS 2 integration**, computer vision, and AI tools to low-level hardware control on the Raspberry Pi, Python offers ready-to-use libraries that accelerate development.
+* **Cross-platform use** → Python runs seamlessly on the Raspberry Pi, making it the ideal choice for tasks such as motor control, depth camera processing, and LIDAR data handling.
+* **Flexibility in logic** → Advanced navigation, obstacle avoidance, and sensor fusion are easier to implement and adjust thanks to Python’s dynamic nature and strong support in the robotics community.
+
+By combining these advantages, Python allows us to move quickly from simulation to real-world testing, making it the backbone of Hoqqa’s control system.
