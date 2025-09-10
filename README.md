@@ -163,21 +163,21 @@ Finally, the **electronic components**—including motors, motor drivers, and se
     <img src="Vehicle-Schemes/wiring_diagram.jpg" alt="Alibali" width="100%"/>
   </p>
 
-_* **Central Controller** → **Raspberry Pi 4B+**, which manages all sensors and actuators.
-* **Sensors**:
+_* **Central Controller** → **Raspberry Pi 4B+**, which manages all sensors and actuators._
+_* **Sensors**:_
 
-  * **Nuwa 60C-HP Depth Camera** → connected via USB for vision and depth perception.
-  * **D500 STL LiDAR** → connected via USB + power, used for wall detection and mapping.
-* **Motors**:
+  _* **Nuwa 60C-HP Depth Camera** → connected via USB for vision and depth perception._
+  _* **D500 STL LiDAR** → connected via USB + power, used for wall detection and mapping._
+_* **Motors**:_
 
-  * **12V DC Encoder Motor** → provides driving power, connected through a motor driver board.
-  * **DS3240 Servo Motor (40kg/cm)** → handles steering, also linked to the motor driver.
-* **Power Supply**:
+  _* **12V DC Encoder Motor** → provides driving power, connected through a motor driver board._
+  _* **DS3240 Servo Motor (40kg/cm)** → handles steering, also linked to the motor driver._
+_* **Power Supply**:_
 
-  * **LiPo Battery (11.1V, 3000mAh, 35C)** → main power source for motors and controller board.
-* **Motor Driver Board** → distributes power and control signals between Raspberry Pi, motors, and sensors.
-* **Wiring**:
+ _ * **LiPo Battery (11.1V, 3000mAh, 35C)** → main power source for motors and controller board._
+_* **Motor Driver Board** → distributes power and control signals between Raspberry Pi, motors, and sensors._
+_* **Wiring**:_
 
-  * **Red = Power**, **Black = Ground**, **Yellow = Data**, **Blue = USB connections**.
+ _ * **Red = Power**, **Black = Ground**, **Yellow = Data**, **Blue = USB connections**._
 
-In short: the **LiPo battery powers the motor driver board**, which drives the motors, while the **Raspberry Pi (running ROS 2)** handles decision-making using input from the **depth camera and LiDAR**._
+_In short: the **LiPo battery powers the motor driver board**, which drives the motors, while the **Raspberry Pi (running ROS 2)** handles decision-making using input from the **depth camera and LiDAR**._
