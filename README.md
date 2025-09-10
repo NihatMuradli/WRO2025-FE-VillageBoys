@@ -93,19 +93,110 @@ This repository presents the **Village Boys Team**'s self-driving car — **Hoqq
 **Nihat Muradli** is a student at the European Azerbaijan School. As a technical contributor to the Hoqqa project, he focuses on refining the vehicle’s parts through simulation-driven design improvements. In addition to his design work, he is responsible for the electrical integration of the system, ensuring reliable communication between hardware components. He also manages the project documentation, aligning it with WRO standards to clearly present the team’s work and progress.
 
 
-## Robot Specifications
+## 3. Robot Specifications
 
 The Village Boys Team proudly presents our self-driving car — the Hoqqa robot, developed for the World Robot Olympiad Azerbaijan 2025 Local Finals. Designed with precision, agility, and performance in mind, Hoqqa reflects the innovation and strong collaboration of our trio. Engineered to meet the challenges of the competition, the robot features some significant sensors equipped with the **Nuwa HP60C Cam**,**Lidar** and **IMU** delivering optimal speed, maneuverability, and power efficiency.
 
 Below, you'll find the key specifications that showcase Hoqqa’s capabilities — a testament to our team's dedication to excellence and readiness to compete on the competition.
 
-  * **Dimensions:** 195mm (L) x 160mm (W) x 230mm (H)
-  * **Weight:** 1.23kg
+  * **Dimensions:** 205mm (L) x 190mm (W) x 130mm (H)
+  * **Weight:** 1.39kg
   * **Maximum Speed:** 6.53m/s
   * **Steering Torque:** 100Ncm
-  * **Working Voltage:** 11.1V–7.6V
+  * **Working Voltage:** 11.1V
   * **Drive System:** Rear-wheel drive (RWD)
   * **Steering Geometry:** Parallel steering
+
+### 3.1 Hoqqa Car’s Logic
+
+The Hoqqa system is built on **ROS 2**, which manages sensor integration, data processing, and control. At startup, the program initializes the **LIDAR**, the **Nuwa 60C-HP depth camera**, and variables for lap tracking and timing, before entering a continuous loop.
+
+The LIDAR provides distance measurements to keep a safe margin from walls, while the depth camera supports lap counting and reference-point recognition on the circuit. Sensor data is continuously analyzed to adjust speed and steering, ensuring stable navigation.
+
+During the Obstacle Challenge, the depth camera detects block colors to decide maneuvering:
+
+* **Red** → pass on the right
+* **Green** → pass on the left
+
+At the same time, LIDAR maintains wall awareness for safe evasion. After completing the required laps and obstacle avoidance, Hoqqa searches for a suitable parking space and performs a parallel parking maneuver using distance and angle calculations from its sensors.
+
+
+### 3.2 Why Python?
+
+For the Hoqqa project, **Python** was chosen as the main programming language because it provides the perfect balance between flexibility, speed of development, and hardware control. Since our system relies on both real-time sensor data and complex decision-making, Python allows us to rapidly develop and refine algorithms while keeping the code clean and easy to maintain.
+
+We benefit from Python in several ways:
+
+* **Readable and efficient** → Python’s high-level syntax makes it easy to write, test, and debug, which is essential for rapid prototyping and adapting strategies during WRO preparation.
+* **Extensive libraries** → From **ROS 2 integration**, computer vision, and AI tools to low-level hardware control on the Raspberry Pi, Python offers ready-to-use libraries that accelerate development.
+* **Cross-platform use** → Python runs seamlessly on the Raspberry Pi, making it the ideal choice for tasks such as motor control, depth camera processing, and LIDAR data handling.
+* **Flexibility in logic** → Advanced navigation, obstacle avoidance, and sensor fusion are easier to implement and adjust thanks to Python’s dynamic nature and strong support in the robotics community.
+
+By combining these advantages, Python allows us to move quickly from simulation to real-world testing, making it the backbone of Hoqqa’s control system.
+
+### 3.3 Why ROS 2?
+
+For Hoqqa, we rely on **ROS 2 (Robot Operating System)** as the backbone of our software. ROS 2 is an open-source robotics framework that provides modular tools for sensor integration, navigation, and simulation. It has become a standard in robotics because it enables complex systems to be built in a flexible and scalable way.
+
+We use ROS 2 for the following reasons:
+
+* **Sensor and Actuator Integration** → ROS 2 allows us to connect the **Nuwa 60C-HP depth camera**, LIDAR, and motor controllers into a single coordinated system. Each sensor publishes data as topics, making it easy to synchronize perception and control.
+* **Environmental Perception with LIDAR** → Using ROS 2 drivers and mapping packages, we process 360° distance data to detect obstacles and track walls. This real-time perception is essential for navigating the WRO track.
+* **Autonomous Navigation and Path Planning** → With ROS 2 navigation tools, we combine depth camera and LIDAR data for decision-making. This enables dynamic path planning, especially during the **Obstacle Challenge**, where the car must react quickly to red or green blocks.
+* **Simulation and Debugging** → ROS 2 integrates with **Gazebo** for simulation and **RViz** for real-time visualization. This allows us to test algorithms safely in a virtual environment before deploying them on the real car, reducing risk and speeding up development.
+
+ROS 2 gives us a solid foundation to bridge simulation and real-world performance, making it an essential part of the Hoqqa project.
+
+## 4. Mobility Management
+
+Mobility is the core element of the Hoqqa project, as the car must navigate efficiently, adapt to track conditions, and complete tasks with stability. To achieve this, the chassis and key components were designed in **3D modeling software** and printed using **PLA**, a material that is lightweight, durable, and cost-effective. PLA provides enough strength for stability while keeping the vehicle light, which is ideal since our design does not aim for extreme speeds but rather for precise and reliable control.
+
+The overall shape of Hoqqa is inspired by **formula-style cars**, with a low ground clearance that improves **road-holding** and reduces **aerodynamic drag**. This streamlined design helps the robot remain stable in turns and minimizes air resistance during movement.
+
+An important design constraint was the placement of the **LIDAR sensor**. Since the competition walls are only 10 cm high, the LIDAR had to be positioned under this limit to ensure accurate scanning of the environment. Careful adjustment of its mounting allows Hoqqa to detect walls and obstacles reliably while still fitting within the official size requirements.
+
+Finally, the **electronic components**—including motors, motor drivers, and sensors—were chosen specifically to maximize mobility. They provide enough torque and responsiveness for smooth navigation, enabling Hoqqa to combine precise control with efficient obstacle avoidance.
+
+### 4.1. Wiring Diagram
+
+  <p align="center">
+    <img src="Vehicle-Schemes/wiring_diagram.jpg" alt="Alibali" width="100%"/>
+  </p>
+
+_* **Central Controller** → **Raspberry Pi 4B+**, which manages all sensors and actuators._
+_* **Sensors**:_
+
+  _* **Nuwa 60C-HP Depth Camera** → connected via USB for vision and depth perception._
+  _* **D500 STL LiDAR** → connected via USB + power, used for wall detection and mapping._
+_* **Motors**:_
+
+  _* **12V DC Encoder Motor** → provides driving power, connected through a motor driver board._
+  _* **DS3240 Servo Motor (40kg/cm)** → handles steering, also linked to the motor driver._
+_* **Power Supply**:_
+
+  _* **LiPo Battery (11.1V, 3000mAh, 35C)** → main power source for motors and controller board._
+_* **Motor Driver Board** → distributes power and control signals between Raspberry Pi, motors, and sensors._
+_* **Wiring**:_
+
+  _* **Red = Power**, **Black = Ground**, **Yellow = Data**, **Blue = USB connections**._
+
+_In short: the **LiPo battery powers the motor driver board**, which drives the motors, while the **Raspberry Pi (running ROS 2)** handles decision-making using input from the **depth camera and LiDAR**._
+
+### 4.2. Motor Axle System
+
+Hoqqa uses a single **12V 7.5 kg·cm, 170 RPM encoder motor** connected to a **26-tooth metal gear** that drives the rear axle. This configuration allows the rear wheels to efficiently support the weight of the car while providing smooth forward and backward movement. The gear ratio ensures better torque and control, improving stability during turns and reducing wear on the wheels. This design is especially important for maintaining precision and reliability on tight corners and variable track conditions.
+  
+  <p align="center">
+    <img src="assets/Motor-Nest.jpeg" alt="Alibali" width="100%"/>
+  </p>
+
+### 4.3. Ackermann Steering System
+
+Hoqqa uses an **Ackermann steering system** controlled by a **15 kg·cm digital servo** for precise and stable navigation. This geometry aligns all wheels to a common center when turning, reducing tire slip and enabling smooth cornering. The high-torque servo ensures accurate, responsive steering, improving maneuverability and control on complex paths and obstacles.
+
+  <p align="center">
+    <img src="assets/Ackermann-steering-mechanism.jpg" alt="Alibali" width="100%"/>
+  </p>
 
 ## 5. 🔋 Power and Sense Management
 
@@ -154,4 +245,3 @@ The battery powering the autonomous car is a ***Lithium Polymer (Li-poly)*** typ
 </table>
 
 </div>
-
