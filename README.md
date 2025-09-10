@@ -107,5 +107,9 @@ Below, you'll find the key specifications that showcase Hoqqa’s capabilities �
   * **Drive System:** Rear-wheel drive (RWD)
   * **Steering Geometry:** Parallel steering
 
-## 4. 🔋 Power and Sense Management<img width="931" height="551" alt="diagram drawio" src="https://github.com/user-attachments/assets/ccaab2b8-9da9-4bcf-89bb-52d620404be3" />
+## 4. 🔋 Power and Sense Management
+
+## 4.1 Power Distribution Diagram
+
+<img width="931" height="551" alt="diagram drawio" src="https://github.com/user-attachments/assets/ccaab2b8-9da9-4bcf-89bb-52d620404be3" />
 
