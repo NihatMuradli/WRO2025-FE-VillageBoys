@@ -275,7 +275,7 @@ For the main structural parts, we used PLA for its affordability and light weigh
 ### 6.3. 3D Printing Process
 
   <p align="center">
-    <img src="assets/3d-printing.jpeg" alt="Alibali" width="100%"/>
+    <img src="assets/3d-printing.jpeg" alt="Alibali" width="700"/>
   </p>
 
 ## 7. Principal Strategy
@@ -291,9 +291,26 @@ A PID controller regulates a system by continuously comparing the desired target
 By combining these three actions, a PID controller ensures the system reaches the desired target efficiently, maintaining stability and minimizing oscillations or delays.
 
   <p align="center">
-    <img src="assets/pid.jpeg" alt="Alibali" width="100%"/>
+    <img src="assets/pid.jpg" alt="Alibali" width="100%"/>
   </p>
 
 ### 7.2. Open Challenge
 
+For obstacle detection, we use the Follow The Gap algorithm, which takes advantage of the precise distance measurements from our LiDAR sensor. This method provides several benefits for our robot:
+
+* **Improved Safety and Navigation:** Enables real-time obstacle avoidance with smooth path adjustments around detected objects, reducing the risk of collisions in complex environments.
+* **Efficient Performance:** Requires low computational resources, allowing fast decision-making suitable for real-time control, while being simple to implement and reliably effective.
+
+  <p align="center">
+    <img src="Vehicle-Schemes/First_Task_Algorithm.png" alt="Alibali" width="100%"/>
+  </p>
+
 ### 7.3. Obstacle Challenge
+
+
+The vehicle’s navigation system integrates LiDAR distance measurements with visual data from a monocular camera to handle obstacle detection and maneuvering. The camera detects the color of pillars along the vehicle’s path: a red pillar triggers a right turn, while a green pillar prompts a left turn. For obstacle avoidance, the LiDAR uses the Follow The Gap algorithm, which creates a safety bubble around the closest detected point, ignores points inside the bubble, and then identifies the largest free-space gap, steering the vehicle toward the furthest point in that gap. After performing color- or gap-based adjustments, the vehicle recalibrates its path to stay aligned with the planned navigation loop, combining real-time visual and spatial data for smooth, responsive, and efficient movement.
+
+  <p align="center">
+    <img src="Vehicle-Schemes/Second_Task_Algorithm.png" alt="Alibali" width="100%"/>
+  </p>
+
