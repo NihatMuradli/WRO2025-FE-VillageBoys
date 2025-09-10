@@ -147,3 +147,14 @@ We use ROS 2 for the following reasons:
 
 ROS 2 gives us a solid foundation to bridge simulation and real-world performance, making it an essential part of the Hoqqa project.
 
+## 4. Mobility Management
+
+Mobility is the core element of the Hoqqa project, as the car must navigate efficiently, adapt to track conditions, and complete tasks with stability. To achieve this, the chassis and key components were designed in **3D modeling software** and printed using **PLA**, a material that is lightweight, durable, and cost-effective. PLA provides enough strength for stability while keeping the vehicle light, which is ideal since our design does not aim for extreme speeds but rather for precise and reliable control.
+
+The overall shape of Hoqqa is inspired by **formula-style cars**, with a low ground clearance that improves **road-holding** and reduces **aerodynamic drag**. This streamlined design helps the robot remain stable in turns and minimizes air resistance during movement.
+
+An important design constraint was the placement of the **LIDAR sensor**. Since the competition walls are only 10 cm high, the LIDAR had to be positioned under this limit to ensure accurate scanning of the environment. Careful adjustment of its mounting allows Hoqqa to detect walls and obstacles reliably while still fitting within the official size requirements.
+
+Finally, the **electronic components**—including motors, motor drivers, and sensors—were chosen specifically to maximize mobility. They provide enough torque and responsiveness for smooth navigation, enabling Hoqqa to combine precise control with efficient obstacle avoidance.
+
+### 4.1. 
