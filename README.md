@@ -93,7 +93,7 @@ This repository presents the **Village Boys Team**'s self-driving car — **Hoqq
 **Nihat Muradli** is a student at the European Azerbaijan School. As a technical contributor to the Hoqqa project, he focuses on refining the vehicle’s parts through simulation-driven design improvements. In addition to his design work, he is responsible for the electrical integration of the system, ensuring reliable communication between hardware components. He also manages the project documentation, aligning it with WRO standards to clearly present the team’s work and progress.
 
 
-## Robot Specifications
+## 3. Robot Specifications
 
 The Village Boys Team proudly presents our self-driving car — the Hoqqa robot, developed for the World Robot Olympiad Azerbaijan 2025 Local Finals. Designed with precision, agility, and performance in mind, Hoqqa reflects the innovation and strong collaboration of our trio. Engineered to meet the challenges of the competition, the robot features some significant sensors equipped with the **Nuwa HP60C Cam**,**Lidar** and **IMU** delivering optimal speed, maneuverability, and power efficiency.
 
@@ -106,3 +106,16 @@ Below, you'll find the key specifications that showcase Hoqqa’s capabilities �
   * **Working Voltage:** 11.1V
   * **Drive System:** Rear-wheel drive (RWD)
   * **Steering Geometry:** Parallel steering
+
+### 3.1 Hoqqa Car’s Logic
+
+The Hoqqa system is built on **ROS 2**, which manages sensor integration, data processing, and control. At startup, the program initializes the **LIDAR**, the **Nuwa 60C-HP depth camera**, and variables for lap tracking and timing, before entering a continuous loop.
+
+The LIDAR provides distance measurements to keep a safe margin from walls, while the depth camera supports lap counting and reference-point recognition on the circuit. Sensor data is continuously analyzed to adjust speed and steering, ensuring stable navigation.
+
+During the Obstacle Challenge, the depth camera detects block colors to decide maneuvering:
+
+* **Red** → pass on the right
+* **Green** → pass on the left
+
+At the same time, LIDAR maintains wall awareness for safe evasion. After completing the required laps and obstacle avoidance, Hoqqa searches for a suitable parking space and performs a parallel parking maneuver using distance and angle calculations from its sensors.
