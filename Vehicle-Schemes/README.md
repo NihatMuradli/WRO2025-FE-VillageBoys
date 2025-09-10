@@ -1,4 +1,8 @@
 Electromechanical diagrams
 ====
 
-This directory must contain one or several schematic diagrams in form of JPEG, PNG or PDF of the electromechanical components illustrating all the elements (electronic components and motors) used in the vehicle and how they connect to each other.
+This directory contains the **electrical diagrams and schematics** of the Hoqqa project. It includes three key files:
+
+1. **First Task Algorithm Map** – outlining the logic flow for the initial challenge.
+2. **Second Task Algorithm Map** – detailing the decision-making process for the second challenge.
+3. **Electrical Wiring Diagram** – showing the complete wiring and connections of the Hoqqa robot.
