@@ -133,3 +133,17 @@ We benefit from Python in several ways:
 * **Flexibility in logic** → Advanced navigation, obstacle avoidance, and sensor fusion are easier to implement and adjust thanks to Python’s dynamic nature and strong support in the robotics community.
 
 By combining these advantages, Python allows us to move quickly from simulation to real-world testing, making it the backbone of Hoqqa’s control system.
+
+### 3.3 Why ROS 2?
+
+For Hoqqa, we rely on **ROS 2 (Robot Operating System)** as the backbone of our software. ROS 2 is an open-source robotics framework that provides modular tools for sensor integration, navigation, and simulation. It has become a standard in robotics because it enables complex systems to be built in a flexible and scalable way.
+
+We use ROS 2 for the following reasons:
+
+* **Sensor and Actuator Integration** → ROS 2 allows us to connect the **Nuwa 60C-HP depth camera**, LIDAR, and motor controllers into a single coordinated system. Each sensor publishes data as topics, making it easy to synchronize perception and control.
+* **Environmental Perception with LIDAR** → Using ROS 2 drivers and mapping packages, we process 360° distance data to detect obstacles and track walls. This real-time perception is essential for navigating the WRO track.
+* **Autonomous Navigation and Path Planning** → With ROS 2 navigation tools, we combine depth camera and LIDAR data for decision-making. This enables dynamic path planning, especially during the **Obstacle Challenge**, where the car must react quickly to red or green blocks.
+* **Simulation and Debugging** → ROS 2 integrates with **Gazebo** for simulation and **RViz** for real-time visualization. This allows us to test algorithms safely in a virtual environment before deploying them on the real car, reducing risk and speeding up development.
+
+ROS 2 gives us a solid foundation to bridge simulation and real-world performance, making it an essential part of the Hoqqa project.
+
