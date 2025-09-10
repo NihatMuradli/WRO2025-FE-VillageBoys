@@ -134,11 +134,24 @@ The battery powering the autonomous car is a ***Lithium Polymer (Li-poly)*** typ
   + ***Spatial awareness through data fusion***: When combining camera data with our sensor, the robot gains a richer understanding of its environment. The camera provides detailed visual context that complements other data sources, leading to a more informed and adaptable navigation strategy.
 ### 5.4 Energy Comsumption Table
 
-| Component                                        | Current Consumption (mA)        |
-|--------------------------------------------------|----------------------------------|
-| **Lidar**                                            | **290 mA** |
-| **Deepsense Camera**                                 | **300 mA** |
-| **Servo Motor**                                     | **653 mA** |
-| **Encoder Motor**                                    | **450 mA** |
-| **RRC Lite Controller**                              | **340 mA** |
-| **Raspberry Pi 4**                                  | **2300 mA** |
+<div align="center">
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Current Consumption (mA)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><b>Lidar</b></td><td><b>290 mA</b></td></tr>
+    <tr><td><b>Deepsense Camera</b></td><td><b>300 mA</b></td></tr>
+    <tr><td><b>Servo Motor</b></td><td><b>653 mA</b></td></tr>
+    <tr><td><b>Encoder Motor</b></td><td><b>450 mA</b></td></tr>
+    <tr><td><b>RRC Lite Controller</b></td><td><b>340 mA</b></td></tr>
+    <tr><td><b>Raspberry Pi 4</b></td><td><b>2300 mA</b></td></tr>
+  </tbody>
+</table>
+
+</div>
+
