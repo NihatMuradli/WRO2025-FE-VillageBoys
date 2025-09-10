@@ -132,3 +132,13 @@ The battery powering the autonomous car is a ***Lithium Polymer (Li-poly)*** typ
 #### 5.3.2 Deepsense Camera:
   + ***Color detection***: Since graphical color detection is a core part of your project, the camera can precisely identify various colors on the course. This enables our robot to execute programmed actions based on specific color cues, which is crucial for the Obstacle challenge, which requires interaction with color-based objects.
   + ***Spatial awareness through data fusion***: When combining camera data with our sensor, the robot gains a richer understanding of its environment. The camera provides detailed visual context that complements other data sources, leading to a more informed and adaptable navigation strategy.
+### 5.4 Energy Comsumption Table
+
+| Component                                        | Current Consumption (mA)        |
+|--------------------------------------------------|----------------------------------|
+| **Lidar**                                            | **290 mA** |
+| **Deepsense Camera**                                 | **300 mA** |
+| **Servo Motor**                                     | **653 mA** |
+| **Encoder Motor**                                    | **450 mA** |
+| **RRC Lite Controller**                              | **340 mA** |
+| **Raspberry Pi 4**                                  | **2300 mA** |
