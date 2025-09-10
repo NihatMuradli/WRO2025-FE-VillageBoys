@@ -106,3 +106,5 @@ Below, you'll find the key specifications that showcase Hoqqa’s capabilities �
   * **Working Voltage:** 11.1V–7.6V
   * **Drive System:** Rear-wheel drive (RWD)
   * **Steering Geometry:** Parallel steering
+
+## 4. 🔋 Power and Sense Management
