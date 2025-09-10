@@ -197,3 +197,51 @@ Hoqqa uses an **Ackermann steering system** controlled by a **15 kg·cm digita
   <p align="center">
     <img src="assets/Ackermann-steering-mechanism.jpg" alt="Alibali" width="100%"/>
   </p>
+
+## 5. 🔋 Power and Sense Management
+
+### 5.1 Power Distribution Diagram
+<p align = "center">
+<img width="1001" height="585" alt="flowchart" src="https://github.com/user-attachments/assets/bdb2ca96-419b-4fde-bfc0-3077cbdcfd3b" />
+  </p>
+  
+### 5.2 Power Source
+The battery powering the autonomous car is a ***Lithium Polymer (Li-poly)*** type with a capacity of 3000 mAh and a nominal voltage of 11.1V. This battery was chosen specifically to meet the energy demands of the system, providing enough power to run both the Raspberry Pi and the vehicle's motors simultaneously. With a discharge capacity of 20C, the battery ensures a consistent energy supply, which is essential for maintaining system performance in high-demand applications like autonomous operation and real-time data processing.
+  
+### 5.3 Reasons for Using Our Sensors and Camera
+#### 5.3.1 D500 LiDar:
+  + ***Precise environmental mapping***: With its ±10mm accuracy, the D500 enables precise positioning, essential for navigating narrow or intricate sections of the obstacle course. This allows our robot to make calculated movements without collisions or deviations.
+  + ***Real-time obstacle avoidance***: With its fast sampling rate, the LiDAR can detect and react to obstacles dynamically, ensuring smoother movement through the course.
+  + ***Enhanced performance in varied lighting***: Its high tolerance for ambient light up to 60,000 lux and ability to detect glass is essential, where lighting conditions vary. This feature ensures our robot maintains consistent performance, accurately detecting objects and avoiding potential pitfalls like transparent or shiny obstacles.
+
+> [!IMPORTANT]
+> **Placement:**
+> It was positioned at an altitude of under 10 cm, so it is able to detect the walls of the path, which are also 10 cm high. This placement ensures the Lidar has a clear view of the obstacles while remaining unobstructed by other components. All other elements on the car were arranged to avoid blocking the Lidar’s line of sight.
+> ![5_684ac3de-d4f0-44ea-b2ec-298623cacf0f](https://github.com/user-attachments/assets/844f35a4-405b-4f76-bc84-3747bfd89c9f)
+
+  
+#### 5.3.2 Deepsense Camera:
+  + ***Color detection***: Since graphical color detection is a core part of your project, the camera can precisely identify various colors on the course. This enables our robot to execute programmed actions based on specific color cues, which is crucial for the Obstacle challenge, which requires interaction with color-based objects.
+  + ***Spatial awareness through data fusion***: When combining camera data with our sensor, the robot gains a richer understanding of its environment. The camera provides detailed visual context that complements other data sources, leading to a more informed and adaptable navigation strategy.
+### 5.4 Energy Comsumption Table
+
+<div align="center">
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Current Consumption (mA)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><b>Lidar</b></td><td><b>290 mA</b></td></tr>
+    <tr><td><b>Deepsense Camera</b></td><td><b>300 mA</b></td></tr>
+    <tr><td><b>Servo Motor</b></td><td><b>653 mA</b></td></tr>
+    <tr><td><b>Encoder Motor</b></td><td><b>450 mA</b></td></tr>
+    <tr><td><b>RRC Lite Controller</b></td><td><b>340 mA</b></td></tr>
+    <tr><td><b>Raspberry Pi 4</b></td><td><b>2300 mA</b></td></tr>
+  </tbody>
+</table>
+
+</div>
