@@ -181,3 +181,15 @@ _* **Wiring**:_
   _* **Red = Power**, **Black = Ground**, **Yellow = Data**, **Blue = USB connections**._
 
 _In short: the **LiPo battery powers the motor driver board**, which drives the motors, while the **Raspberry Pi (running ROS 2)** handles decision-making using input from the **depth camera and LiDAR**._
+
+### 4.2. Motor Axle System
+
+Hoqqa uses a single **12V 7.5 kg·cm, 170 RPM encoder motor** connected to a **26-tooth metal gear** that drives the rear axle. This configuration allows the rear wheels to efficiently support the weight of the car while providing smooth forward and backward movement. The gear ratio ensures better torque and control, improving stability during turns and reducing wear on the wheels. This design is especially important for maintaining precision and reliability on tight corners and variable track conditions.
+  
+  <p align="center">
+    <img src="assets/Motor-Nest.jpeg" alt="Alibali" width="100%"/>
+  </p>
+
+### 4.3. Ackermann Steering System
+
+Hoqqa uses an **Ackermann steering system** controlled by a **15 kg·cm digital servo** for precise and stable navigation. This geometry aligns all wheels to a common center when turning, reducing tire slip and enabling smooth cornering. The high-torque servo ensures accurate, responsive steering, improving maneuverability and control on complex paths and obstacles.
