@@ -245,3 +245,55 @@ The battery powering the autonomous car is a ***Lithium Polymer (Li-poly)*** typ
 </table>
 
 </div>
+
+## 6. Building the Robot
+
+**This section covers the assembly and 3D design of our robot, highlighting three main components: the chassis, the front steering system, and the 3D printing process.**
+
+### 6.1. Chassis
+
+The base and upper casing of our robot were crafted from aluminum to provide a strong yet lightweight support structure for all components. The base is designed to securely mount the Raspberry Pi and support the weight of the vehicle’s systems, offering a stable foundation and balanced weight distribution, which is critical for overall stability. The upper casing houses the LiDAR sensor, ensuring it has an unobstructed view while protecting it from potential impacts and environmental factors.
+
+For the main structural parts, we used PLA, chosen for its affordability and light weight. The components are specially designed to enhance mobility and road-holding, allowing the robot to move efficiently and maintain stability across different surfaces.
+
+
+  <p align="center">
+    <img src="assets/Second-floor.jpeg" alt="Alibali" width="100%"/>
+  </p>
+
+### 6.2. Front Wheel System
+
+The base and upper casing of our robot were crafted from aluminum to provide strong yet lightweight support for all components. The base securely mounts the Raspberry Pi and supports the vehicle’s systems, offering a stable foundation and balanced weight distribution. The upper casing houses the LiDAR sensor, ensuring an unobstructed view while protecting it from impacts and environmental factors.
+
+For the main structural parts, we used PLA for its affordability and light weight. The components are specially designed for mobility and road-holding, creating a system that provides both strong structure and sufficient mobility for stable and efficient movement.
+
+  <p align="center">
+    <img src="assets/Front-axe-base.jpeg" alt="Alibali" width="100%"/>
+  </p>
+
+
+### 6.3. 3D Printing Process
+
+  <p align="center">
+    <img src="assets/3d-printing.jpeg" alt="Alibali" width="100%"/>
+  </p>
+
+## 7. Principal Strategy
+
+### 7.1. PID Controller
+
+A PID controller regulates a system by continuously comparing the desired target value (setpoint) with the current measured value and making adjustments based on three components:
+
+* **Proportional (P):** Responds proportionally to the current error, providing an immediate correction.
+* **Integral (I):** Accounts for accumulated past errors, helping to eliminate steady-state deviations.
+* **Derivative (D):** Considers the rate at which the error is changing, smoothing the response and reducing overshoot.
+
+By combining these three actions, a PID controller ensures the system reaches the desired target efficiently, maintaining stability and minimizing oscillations or delays.
+
+  <p align="center">
+    <img src="assets/pid.jpeg" alt="Alibali" width="100%"/>
+  </p>
+
+### 7.2. Open Challenge
+
+### 7.3. Obstacle Challenge
